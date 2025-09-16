@@ -10,7 +10,10 @@ const employeeRoutes = require('./routes/employeeRoutes');
 const verificationRoutes = require('./routes/verificationRoutes');
 const bankDetailsRoutes = require('./routes/bankDetailsRoutes');
 const payModeRoutes = require('./routes/payModeRoutes');
-
+const authRoutes = require("./routes/authRoutes");
+const mainCategoryRoutes = require('./routes/mainCategoryRoutes');
+const subCategoryRoutes = require("./routes/subCategoryRoutes");
+const variantRoutes = require("./routes/variantRoutes");
 
 // Middleware
 app.use(express.static("image"));
@@ -24,7 +27,10 @@ app.use('/employee', employeeRoutes);
 app.use('/verification', verificationRoutes);
 app.use('/bankdetails', bankDetailsRoutes);
 app.use('/paymode', payModeRoutes);
-
+app.use("/authRoutes", authRoutes);
+app.use('/maincategory', mainCategoryRoutes);
+app.use("/subcategory", subCategoryRoutes);
+app.use("/variant", variantRoutes);
 
 
 // Start the servers

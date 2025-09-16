@@ -1,5 +1,5 @@
 const vendorMaster = require("../models/vendormastermodel.js");
-// const { verifyNonTechnicalAccess } = require("../utils/verify_token.js");
+const { verifyNonTechnicalAccess } = require("../utils/verify_token.js");
 
 // Add vendor
 exports.addVendor = async (req, res) => {
@@ -7,7 +7,7 @@ exports.addVendor = async (req, res) => {
   if (!token) return res.status(401).json({ error: "Token not provided" });
 
   try {
-    // await verifyNonTechnicalAccess(token);
+    await verifyNonTechnicalAccess(token);
     const { vendor_name, mobile_number, email, gst_number, address, payment_terms, status } = req.body;
 
     if (!vendor_name || !mobile_number || !email) {
