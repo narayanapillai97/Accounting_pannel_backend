@@ -46,7 +46,7 @@ exports.getAllVendors = async (req, res) => {
         return res.status(500).json({
           error: err.sqlMessage || err.message || "Error retrieving vendors."
         });
-      }
+ }
       res.status(200).json(results);
     });
   } catch (error) {
