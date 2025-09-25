@@ -39,7 +39,7 @@ exports.login = async (req, res) => {
     const token = jwt.sign(
       tokenPayload,
       process.env.SECRET_KEY,
-      { expiresIn: "1h" }
+      { expiresIn: "7d" }
     );
 
     console.log("🆕 Generated Token Length:", token.length);
@@ -81,7 +81,7 @@ exports.generateTestToken = async (req, res) => {
     const testToken = jwt.sign(
       testPayload,
       process.env.SECRET_KEY,
-      { expiresIn: "1h" }
+      { expiresIn: "7d" }
     );
 
     console.log("🧪 Test Token Generated:");

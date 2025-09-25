@@ -39,7 +39,7 @@ exports.verifyNonTechnicalAccess = (req, res, next) => {
       // Generate a test token to compare
       try {
         const testPayload = { id: 1, email: "test@example.com", role: "admin" };
-        const testToken = jwt.sign(testPayload, process.env.SECRET_KEY, { expiresIn: "1h" });
+        const testToken = jwt.sign(testPayload, process.env.SECRET_KEY, { expiresIn: "7d" });
         console.log("🧪 Complete token example:", testToken);
         console.log("🧪 Complete token length:", testToken.length);
         console.log("🧪 Complete token parts:", testToken.split('.').length);

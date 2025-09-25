@@ -24,25 +24,24 @@ const Income = {
     },
 
     // Get all with joins
-    getAll: (callback) => {
-        const query = `
-            SELECT 
-                i.*,
-                mc.category_name,
-                sc.subcategory_name,
-                v.variant_name,
-                pm.payment_mode_name,
-                b.bill_code
-            FROM income i
-            LEFT JOIN main_category mc ON i.category_id = mc.id
-            LEFT JOIN subcategory sc ON i.subcategory_id = sc.id
-            LEFT JOIN variant v ON i.variant_id = v.id
-            LEFT JOIN payment_mode pm ON i.payment_mode_id = pm.id
-            LEFT JOIN bill b ON i.bill_id = b.id
-            ORDER BY i.created_at DESC
-        `;
-        db.query(query, callback);
-    },
+ getAll: (callback) => {
+    const query = `
+        SELECT 
+            i.*,
+            mc.category_name,
+            sc.sub_category_name,
+            v.variant_name,
+            pm.payment_method
+        FROM income i
+        LEFT JOIN main_category mc ON i.category_id = mc.id
+        LEFT JOIN sub_category sc ON i.subcategory_id = sc.id
+        LEFT JOIN variant v ON i.variant_id = v.id
+        LEFT JOIN pay_mode_master pm ON i.payment_mode_id = pm.id
+        ORDER BY i.created_at DESC
+    `;
+    db.query(query, callback);
+},
+
 
     // Get by ID with joins
     getById: (id, callback) => {
