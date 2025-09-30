@@ -34,5 +34,13 @@ router.get("/debug-headers", (req, res) => {
   });
 });
 
+// User management routes - ADD THESE NEW ROUTES
+router.get("/get", authController.getUsers);
+router.get("/getby/:id", authController.getUserById);
+router.post("/post", authController.createUser);
+router.put("/update/:id", authController.updateUser);
+router.delete("/delete/:id", authController.deleteUser);
+router.get("/users/search", authController.searchUsers);
+
 console.log("✅ Auth routes configured");
 module.exports = router;
